@@ -31,9 +31,10 @@ export function HeroSection() {
         />
 
         {/* 
-          Gradient tint under the text (left side to right side).
+          Gradient tint under the text.
+          RTL-aware: Starts from the left in English, starts from the right in Arabic.
         */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-transparent dark:from-black/95 dark:via-black/70 dark:to-transparent w-full lg:w-3/4 z-10" />
+        <div className="absolute top-0 bottom-0 ltr:left-0 rtl:right-0 ltr:bg-gradient-to-r rtl:bg-gradient-to-l from-white/95 via-white/70 to-transparent dark:from-black/95 dark:via-black/70 dark:to-transparent w-full lg:w-3/4 z-10" />
         
         {/* Subtle overall tint to help text contrast */}
         <div className="absolute inset-0 bg-white/20 dark:bg-black/40 z-10 pointer-events-none" />
