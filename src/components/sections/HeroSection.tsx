@@ -52,13 +52,6 @@ export function HeroSection() {
             animate="visible"
             className="relative space-y-8 text-center lg:text-start z-10"
           >
-            {/* Badge */}
-            <motion.div variants={fadeInUp} className="flex justify-center lg:justify-start">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest border border-brand/30 bg-brand/10 text-brand-light">
-                <Sparkles className="w-3 h-3" />
-                {t("badge")}
-              </span>
-            </motion.div>
 
             {/* Headline */}
             <motion.h1
