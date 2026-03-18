@@ -37,20 +37,26 @@ export function Footer() {
           <div>
             <h4 className="font-bold mb-6 text-text-primary">{t("company")}</h4>
             <ul className="space-y-4 text-sm text-text-secondary">
-              <li><Link href="/about" className="hover:text-brand transition-colors">{nav("about")}</Link></li>
-              <li><Link href="/team" className="hover:text-brand transition-colors">{nav("team")}</Link></li>
-              <li><Link href="/contact" className="hover:text-brand transition-colors">{nav("contact")}</Link></li>
-              <li><Link href="/careers" className="hover:text-brand transition-colors">Careers</Link></li>
+              {NAVIGATION_LINKS.filter(link => ["About", "Team", "Blog", "Contact"].includes(link.name)).map(link => (
+                <li key={link.href}>
+                  <Link href={link.href} className="hover:text-brand transition-colors">
+                    {nav(link.name.toLowerCase())}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
             <h4 className="font-bold mb-6 text-text-primary">{t("services")}</h4>
             <ul className="space-y-4 text-sm text-text-secondary">
-              <li><Link href="/services" className="hover:text-brand transition-colors">Web Development</Link></li>
-              <li><Link href="/services" className="hover:text-brand transition-colors">Mobile apps</Link></li>
-              <li><Link href="/services" className="hover:text-brand transition-colors">UI/UX Design</Link></li>
-              <li><Link href="/services" className="hover:text-brand transition-colors">Cloud Solutions</Link></li>
+              {NAVIGATION_LINKS.filter(link => ["Services", "Technologies", "Projects"].includes(link.name)).map(link => (
+                <li key={link.href}>
+                  <Link href={link.href} className="hover:text-brand transition-colors">
+                    {nav(link.name.toLowerCase())}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -60,8 +66,8 @@ export function Footer() {
               {t("subscribe")}
             </p>
             <div className="flex gap-2">
-              <input 
-                type="email" 
+              <input
+                type="email"
                 placeholder={t("email_placeholder")}
                 className="bg-surface-subtle border border-surface-muted rounded-md px-3 py-2 text-sm w-full focus:outline-none focus:ring-1 focus:ring-brand text-text-primary placeholder:text-text-muted"
               />

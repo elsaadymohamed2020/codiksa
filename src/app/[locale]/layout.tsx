@@ -45,7 +45,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"} suppressHydrationWarning>
-      <body className={`${fontVariable} font-sans antialiased flex flex-col min-h-screen`}>
+      <body className={`${outfit.variable} ${cairo.variable} font-sans antialiased flex flex-col min-h-screen`}>
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>
             <SmoothScrollProvider>
