@@ -1,0 +1,149 @@
+{
+  "Index": {
+    "badge": "Modern Agency · 2025",
+    "title_part1": "Building the",
+    "title_part2": "Future of Digital",
+    "title_part3": "Products",
+    "subtitle": "Codiksa is a modern team of developers building scalable digital solutions.",
+    "cta_start": "Start Your Project",
+    "cta_explore": "Explore Our Work",
+    "stats": {
+      "projects": "Projects Delivered",
+      "clients": "Happy Clients",
+      "experience": "Years Experience",
+      "team": "Team Experts"
+    }
+  },
+  "Services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive digital solutions tailored to your business goals.",
+    "web_dev": "Web Development",
+    "web_dev_desc": "Building scalable, high-performance web applications using the latest technologies.",
+    "mobile": "Mobile Apps",
+    "mobile_desc": "Crafting native and cross-platform mobile experiences that users love.",
+    "ui_ux": "UI/UX Design",
+    "ui_ux_desc": "Designing intuitive and visually stunning interfaces focused on user engagement.",
+    "cloud": "Cloud & DevOps",
+    "cloud_desc": "Modern infrastructure setup and automated deployment pipelines for maximum uptime.",
+    "data": "Data & Backend",
+    "data_desc": "Robust database architectures and efficient server-side logic for complex systems.",
+    "ai": "AI Solutions",
+    "ai_desc": "Integrating intelligent features and machine learning models to power the next gen."
+  },
+  "Technologies": {
+    "badge": "Tech Stack",
+    "title": "Built with Modern Technologies",
+    "subtitle": "We leverage the most advanced tools and frameworks to deliver high-performance, scalable digital solutions."
+  },
+  "About": {
+    "heading": "We are a team of passionate developers dedicated to delivering high-quality software.",
+    "description": "At Codiksa, we believe that technology should empower businesses. Our approach combines technical excellence with a deep understanding of user needs to create products that scale.",
+    "values": {
+      "innovation": "Innovation",
+      "performance": "Performance",
+      "scalability": "Scalability"
+    },
+    "milestones": {
+      "m1_year": "2017",
+      "m1_title": "The Beginning",
+      "m1_desc": "Codiksa was founded by 3 developers with a vision to build better products.",
+      "m2_year": "2019",
+      "m2_title": "Expansion",
+      "m2_desc": "Grew to 10+ employees and delivered our 50th project.",
+      "m3_year": "2021",
+      "m3_title": "Global Reach",
+      "m3_desc": "Started working with international clients across Europe and the US.",
+      "m4_year": "2024",
+      "m4_title": "Innovation Hub",
+      "m4_desc": "Launched our dedicated AI & Cloud solutions department."
+    }
+  },
+  "Team": {
+    "title": "Meet the Team",
+    "subtitle": "A collective of creative minds and technical experts dedicated to your success.",
+    "roles": {
+      "r1": "CEO & Founder",
+      "r2": "Lead Designer",
+      "r3": "Fullstack Developer",
+      "r4": "Backend Architect"
+    }
+  },
+  "Projects": {
+    "title": "Recent Projects",
+    "subtitle": "A showcase of our latest digital products and case studies.",
+    "view_project": "View Project",
+    "filter_all": "All",
+    "categories": {
+      "Web": "Web",
+      "Mobile": "Mobile",
+      "UI/UX": "UI/UX"
+    },
+    "p1_title": "E-Commerce Platform",
+    "p1_desc": "A modern shopping experience with real-time inventory management.",
+    "p2_title": "Fitness Tracker App",
+    "p2_desc": "Cross-platform mobile app for tracking workouts and nutrition.",
+    "p3_title": "Corporate Dashboard",
+    "p3_desc": "Interactive analytics dashboard for internal operations.",
+    "p4_title": "SaaS Marketing Site",
+    "p4_desc": "High-conversion landing page with smooth scroll animations."
+  },
+  "Contact": {
+    "title": "Get in Touch",
+    "subtitle": "Ready to start your next project? Let's talk about how we can help.",
+    "email": "Email",
+    "phone": "Phone",
+    "office": "Office",
+    "address": "Maadi, Cairo, Egypt",
+    "form": {
+      "name_label": "Name",
+      "name_placeholder": "John Doe",
+      "email_label": "Email",
+      "email_placeholder": "john@example.com",
+      "subject_label": "Subject",
+      "subject_placeholder": "Project Inquiry",
+      "message_label": "Message",
+      "message_placeholder": "Tell us about your project...",
+      "send_btn": "Send Message"
+    }
+  },
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "technologies": "Technologies",
+    "projects": "Projects",
+    "team": "Team",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "Footer": {
+    "company": "Company",
+    "services": "Services",
+    "newsletter": "Newsletter",
+    "subscribe": "Subscribe to our newsletter for the latest digital insights.",
+    "email_placeholder": "Email address",
+    "join": "Join",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "rights": "Codiksa. All rights reserved."
+  },
+  "Blog": {
+    "title": "Our Blog",
+    "subtitle": "Latest insights and updates from our team.",
+    "read_more": "Read More",
+    "posts": {
+      "post1_title": "The Future of Web Development in 2025",
+      "post1_desc": "Explore the upcoming trends and technologies that will shape the web development landscape in the coming years.",
+      "post1_date": "March 15, 2024",
+      "post1_category": "Technology",
+      "post2_title": "Mastering UI/UX Design Principles",
+      "post2_desc": "A comprehensive guide to understanding and applying core design principles to create stunning interfaces.",
+      "post2_date": "March 10, 2024",
+      "post2_category": "Design",
+      "post3_title": "Scaling Node.js Applications",
+      "post3_desc": "Best practices and architectural patterns for building highly scalable backend systems using Node.js.",
+      "post3_date": "March 5, 2024",
+      "post3_category": "Backend"
+    }
+  }
+}

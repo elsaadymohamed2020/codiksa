@@ -1,0 +1,6 @@
+// Minimal i18n structure for the homepage
+/* 
+  I'll just add some basic translations for the other sections 
+  to make sure useTranslations doesn't crash if used later.
+*/
+{}

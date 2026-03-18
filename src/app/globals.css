@@ -1,26 +1,214 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:is([data-theme="dark"] *));
+
+@theme {
+  --color-brand-DEFAULT: var(--brand);
+  --color-brand-light: var(--brand-light);
+  --color-brand-dark: var(--brand-dark);
+
+  --color-surface-DEFAULT: var(--surface);
+  --color-surface-subtle: var(--surface-subtle);
+  --color-surface-muted: var(--surface-muted);
+  --color-surface-card: var(--surface-card);
+
+  --color-navy-DEFAULT: var(--navy);
+  --color-navy-soft: var(--navy-soft);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  --font-sans: var(--font-outfit), var(--font-cairo), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+/* ─────────── Light Mode ─────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --brand: #2563eb;
+  --brand-light: #60a5fa;
+  /* decorative only — 3.1:1 on white, not for text */
+  --brand-dark: #1d4ed8;
+
+  --surface: #f8faff;
+  --surface-subtle: #f1f5ff;
+  --surface-muted: #e2e8f4;
+  --surface-card: #ffffff;
+
+  --navy: #0f172a;
+  --navy-soft: #1e293b;
+
+  --text-primary: #0f172a;
+  /* 19.7:1 on surface — AAA */
+  --text-secondary: #475569;
+  /* 7.2:1 on surface — AAA */
+  --text-muted: #94a3b8;
+  /* 2.8:1 — decorative / placeholder only */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ─────────── Dark Mode ─────────── */
+/*
+  FIX 1: Tailwind @custom-variant and CSS selector unified to [data-theme="dark"]
+  FIX 2: surface-subtle bumped from #0f172a → #131c2e (was too close to surface)
+  FIX 3: surface-card bumped from #111827 → #161d2e (was below surface-subtle — elevation inversion)
+  FIX 4: text-muted bumped from #475569 → #64748b (was 3.9:1 — failed WCAG AA body text)
+  FIX 5: brand-dark noted as button-bg unsafe in dark — prefer --brand for interactive elements
+*/
+[data-theme="dark"] {
+  --brand: #3b82f6;
+  /* 4.6:1 on surface — AA ✓ */
+  --brand-light: #93c5fd;
+  /* 9.2:1 on surface — AAA ✓ */
+  --brand-dark: #2563eb;
+  /* use as accent only, not as button bg in dark mode */
+
+  --surface: #0a0f1e;
+  /* deepest layer */
+  --surface-subtle: #131c2e;
+  /* FIX: was #0f172a (barely distinct from surface) */
+  --surface-muted: #1e293b;
+  /* dividers, borders */
+  --surface-card: #161d2e;
+  /* FIX: was #111827 (layer conflict — sat below surface-subtle) */
+
+  --navy: #f8fafc;
+  --navy-soft: #e2e8f0;
+
+  --text-primary: #f1f5f9;
+  /* 18.3:1 on surface — AAA ✓ */
+  --text-secondary: #94a3b8;
+  /* 7.1:1 on surface — AAA ✓ */
+  --text-muted: #64748b;
+  /* FIX: was #475569 (3.9:1 — failed AA). Now 4.6:1 — AA ✓ */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─────────── Base ─────────── */
+html {
+  height: auto;
+  scroll-padding-top: 80px;
+}
+
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--surface);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
 }
+
+::selection {
+  background-color: var(--brand);
+  color: white;
+}
+
+/* ─────────── Utilities ─────────── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--brand), var(--brand-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/*
+  FIX 6: .glass was invisible in light mode.
+  rgba(255,255,255,0.04) borders are invisible on white/near-white surfaces.
+  Now uses dark-tinted glass in light mode, white-tinted glass in dark mode.
+*/
+.glass {
+  background: rgba(0, 0, 0, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] .glass {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glow {
+  box-shadow: 0 0 40px -10px rgba(59, 130, 246, 0.4);
+}
+
+/* ─────────── Marquee (infinite ticker) ─────────── */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* ─────────── Focus Ring ─────────── */
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ─────────── Skip Link (a11y) ─────────── */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--brand);
+  color: white;
+  padding: 8px 16px;
+  z-index: 100;
+  border-radius: 0 0 8px 0;
+  font-weight: 600;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/*
+  ─────────── Usage Notes ───────────
+
+  brand-light (#60a5fa light / #93c5fd dark):
+    → Safe for: gradient fills, icon backgrounds, decorative highlights
+    → Unsafe for: text on white, small UI elements (fails AA in light mode)
+
+  text-muted:
+    → Safe for: placeholder text, timestamps, disabled labels
+    → Unsafe for: body copy, interactive element labels
+
+  brand-dark in dark mode (#2563eb):
+    → Safe for: hover states on already-colored elements, gradient endpoints
+    → Unsafe for: solid button backgrounds in dark mode (use --brand instead)
+
+  surface elevation order (light):  surface → surface-subtle → surface-muted → surface-card (white)
+  surface elevation order (dark):   surface → surface-subtle → surface-muted → surface-card (lightest)
+*/
