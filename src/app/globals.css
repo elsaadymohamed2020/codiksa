@@ -123,7 +123,7 @@ body {
 
 /* ─────────── Utilities ─────────── */
 .gradient-text {
-  background: linear-gradient(135deg, #9683c2, #452d49, #693f3f);
+  background: linear-gradient(135deg, var(--brand-light), var(--brand), #8b5cf6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
