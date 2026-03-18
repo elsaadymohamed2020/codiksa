@@ -4,7 +4,7 @@ import { ReactLenis, useLenis } from "@studio-freight/react-lenis";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
-export function SmoothScrollProvider({ children }: { children: any }) {
+export function SmoothScrollProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const lenis = useLenis();
 

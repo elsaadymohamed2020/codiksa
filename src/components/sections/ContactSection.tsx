@@ -2,7 +2,7 @@
 
 import { Container } from "@/components/ui/Container";
 import { SectionTitle } from "@/components/ui/SectionTitle";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/Card";
+import { Card, CardContent } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { motion } from "framer-motion";
@@ -15,7 +15,13 @@ export function ContactSection() {
   const t = useTranslations("Contact");
 
   return (
-    <section id="contact" className="py-24 bg-surface">
+    <section id="contact" className="py-32 bg-surface overflow-hidden relative transition-colors duration-500">
+      {/* Ambient background glow blobs */}
+      <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-brand/5 blur-[100px] rounded-full pointer-events-none -translate-x-1/2" />
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-violet-500/5 blur-[100px] rounded-full pointer-events-none translate-x-1/2" />
+
+      {/* Top gradient line only (since it's the last section usually) */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand/20 to-transparent" />
       <Container>
         <SectionTitle
           title={t("title")}
@@ -62,7 +68,6 @@ export function ContactSection() {
             </div>
           </motion.div>
 
-          {/* Contact Form */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -70,7 +75,8 @@ export function ContactSection() {
             variants={fadeInUp}
             className="lg:col-span-2"
           >
-            <Card className="p-2 sm:p-4">
+            <Card className="p-2 sm:p-4 glass relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <CardContent className="space-y-4 pt-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">

@@ -36,8 +36,24 @@
     "subtitle": "We leverage the most advanced tools and frameworks to deliver high-performance, scalable digital solutions."
   },
   "About": {
+    "badge": "Who We Are",
     "heading": "We are a team of passionate developers dedicated to delivering high-quality software.",
     "description": "At Codiksa, we believe that technology should empower businesses. Our approach combines technical excellence with a deep understanding of user needs to create products that scale.",
+    "stats": {
+      "projects": "Projects Delivered",
+      "clients": "Happy Clients",
+      "experience": "Years Experience",
+      "team": "Team Experts"
+    },
+    "values_title": "Our Core Values",
+    "skills_title": "Expertise",
+    "skills": {
+      "web": "Web Development",
+      "mobile": "Mobile Apps",
+      "design": "UI / UX Design",
+      "cloud": "Cloud & DevOps",
+      "ai": "AI Integration"
+    },
     "values": {
       "innovation": "Innovation",
       "performance": "Performance",
@@ -56,7 +72,8 @@
       "m4_year": "2024",
       "m4_title": "Innovation Hub",
       "m4_desc": "Launched our dedicated AI & Cloud solutions department."
-    }
+    },
+    "cta_learn": "Work with us"
   },
   "Team": {
     "title": "Meet the Team",

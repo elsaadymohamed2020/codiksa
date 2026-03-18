@@ -52,9 +52,14 @@ export function ServicesSection() {
   ];
 
   return (
-    <section id="services" className="py-24 bg-surface-subtle relative">
-      {/* Subtle gradient top border */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand/30 to-transparent" />
+    <section id="services" className="py-32 bg-surface overflow-hidden relative transition-colors duration-500">
+      {/* Ambient background glow blobs */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand/5 blur-[120px] rounded-full pointer-events-none translate-x-1/3 -translate-y-1/3" />
+      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-teal-500/5 blur-[100px] rounded-full pointer-events-none -translate-x-1/2" />
+
+      {/* Top/Bottom gradient lines */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand/20 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand/20 to-transparent" />
       <Container>
         <SectionTitle
           title={t("title")}

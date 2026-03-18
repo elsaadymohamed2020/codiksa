@@ -1,10 +1,11 @@
 import { Container } from "@/components/ui/Container";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { useTranslations } from "next-intl";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/Card";
+import { Card, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 export default function BlogPage() {
   const t = useTranslations("Blog");
@@ -48,10 +49,11 @@ export default function BlogPage() {
           {POSTS.map((post) => (
             <Card key={post.id} className="group overflow-hidden flex flex-col h-full hover:border-brand/30 transition-all duration-300">
               <div className="relative aspect-video overflow-hidden shrink-0">
-                <img
+                <Image
                   src={post.image}
                   alt={post.title}
-                  className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute top-4 left-4 flex gap-2">
                   <Badge variant="brand">{post.category}</Badge>

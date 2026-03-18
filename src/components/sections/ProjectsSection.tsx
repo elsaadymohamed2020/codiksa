@@ -3,11 +3,11 @@
 import { useState } from "react";
 import { Container } from "@/components/ui/Container";
 import { SectionTitle } from "@/components/ui/SectionTitle";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/Card";
+import { Card, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { motion, AnimatePresence } from "framer-motion";
-import { fadeInUp, staggerContainer, scaleIn } from "@/lib/animations";
+import { staggerContainer } from "@/lib/animations";
 import Image from "next/image";
 
 import { useTranslations } from "next-intl";
@@ -55,7 +55,14 @@ export function ProjectsSection() {
   );
 
   return (
-    <section id="projects" className="py-24 bg-surface">
+    <section id="projects" className="py-32 bg-surface overflow-hidden relative transition-colors duration-500">
+      {/* Ambient background glow blobs */}
+      <div className="absolute top-1/4 left-0 w-[400px] h-[400px] bg-brand/5 blur-[100px] rounded-full pointer-events-none -translate-x-1/2" />
+      <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] bg-violet-500/5 blur-[100px] rounded-full pointer-events-none translate-x-1/2" />
+
+      {/* Top/Bottom gradient lines */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand/20 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand/20 to-transparent" />
       <Container>
         <SectionTitle
           title={t("title")}
@@ -96,12 +103,14 @@ export function ProjectsSection() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="group overflow-hidden">
+                <Card className="group overflow-hidden relative glass transition-all duration-300 hover:shadow-xl">
+                  <div className="absolute inset-0 bg-gradient-to-br from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                   <div className="relative aspect-video overflow-hidden">
-                    <img
+                    <Image
                       src={project.image}
                       alt={project.title}
-                      className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute top-4 left-4">
                       <Badge variant="brand">

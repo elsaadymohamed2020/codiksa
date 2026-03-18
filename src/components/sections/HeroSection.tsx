@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { useTranslations } from "next-intl";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
 

@@ -18,22 +18,23 @@ export function ServiceCard({ title, description, icon: Icon, tags }: ServiceCar
       whileHover={{ y: -8 }}
       className="h-full"
     >
-      <Card className="h-full group hover:border-brand/30 hover:shadow-xl transition-all duration-300 bg-surface">
-        <CardHeader>
-          <div className="w-12 h-12 rounded-lg bg-brand/5 flex items-center justify-center mb-4 group-hover:bg-brand group-hover:text-white transition-colors duration-300 text-brand">
-            <Icon className="w-6 h-6" />
+      <Card className="h-full group hover:border-brand/30 hover:shadow-xl transition-all duration-300 glass overflow-hidden relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <CardHeader className="relative">
+          <div className="w-14 h-14 rounded-2xl bg-brand/5 flex items-center justify-center mb-6 group-hover:bg-brand group-hover:text-white group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 text-brand glass border-brand/10">
+            <Icon className="w-7 h-7" />
           </div>
-          <CardTitle className="group-hover:text-brand transition-colors">
+          <CardTitle className="group-hover:text-brand transition-colors text-2xl font-bold">
             {title}
           </CardTitle>
-          <CardDescription className="text-base pt-2">
+          <CardDescription className="text-base pt-3 leading-relaxed opacity-80">
             {description}
           </CardDescription>
         </CardHeader>
-        <CardContent>
-          <div className="flex flex-wrap gap-2">
+        <CardContent className="relative">
+          <div className="flex flex-wrap gap-2 pt-2">
             {tags.map((tag) => (
-              <Badge key={tag} variant="secondary" className="bg-brand/5 text-[10px] uppercase tracking-wider">
+              <Badge key={tag} variant="outline" className="text-[10px] uppercase tracking-wider font-semibold border-brand/20 group-hover:border-brand/40 transition-colors">
                 {tag}
               </Badge>
             ))}

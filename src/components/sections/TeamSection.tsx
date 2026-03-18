@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/Card";
 import { Github, Linkedin, Twitter } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
+import Image from "next/image";
 
 import { useTranslations } from "next-intl";
 
@@ -40,8 +41,14 @@ export function TeamSection() {
   ];
 
   return (
-    <section id="team" className="py-24 bg-surface relative">
+    <section id="team" className="py-32 bg-surface overflow-hidden relative transition-colors duration-500">
+      {/* Ambient background glow blobs */}
+      <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-brand/5 blur-[100px] rounded-full pointer-events-none translate-x-1/2" />
+      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-violet-500/5 blur-[100px] rounded-full pointer-events-none -translate-x-1/2" />
+
+      {/* Top/Bottom gradient lines */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand/20 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand/20 to-transparent" />
       <Container>
         <SectionTitle
           title={t("title")}
@@ -57,13 +64,15 @@ export function TeamSection() {
         >
           {TEAM.map((member, i) => (
             <motion.div key={i} variants={fadeInUp}>
-              <Card className="text-center group hover:border-brand/30 transition-all duration-300">
+              <Card className="text-center group hover:border-brand/30 transition-all duration-300 glass overflow-hidden relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <CardHeader className="p-0">
                   <div className="relative aspect-square overflow-hidden">
-                    <img
+                    <Image
                       src={member.image}
                       alt={member.name}
-                      className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
+                      fill
+                      className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
                     />
                   </div>
                 </CardHeader>

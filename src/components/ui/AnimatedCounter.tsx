@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { animate, useMotionValue, useTransform, motion } from "framer-motion";
+import { animate, useMotionValue, useTransform } from "framer-motion";
 
 interface AnimatedCounterProps {
   value: number;
