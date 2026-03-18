@@ -26,7 +26,8 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
         infinite: false,
       }}
     >
-      {children}
+      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+      {children as any}
     </ReactLenis>
   );
 }
